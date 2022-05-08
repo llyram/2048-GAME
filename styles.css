@@ -47,7 +47,7 @@ body {
     left: calc(var(--y) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
     font-weight: bold;
     animation: show 200ms ease-in-out;
-    transform: 100ms ease-in-out;
+    transition: 100ms ease-in-out;
 }
 
 @keyframes show {

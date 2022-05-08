@@ -21,9 +21,21 @@ export default class Tile {
       `${backgroundLightness}%`
     );
     this.#tileElement.style.setProperty(
-        "--text-lightness",
-        `${backgroundLightness < 50 ? 90 : 10}%`
-      );
+      "--text-lightness",
+      `${backgroundLightness < 50 ? 90 : 10}%`
+    );
+  }
+
+  get value() {
+    return this.#value;
+  }
+
+  get x() {
+    return this.#x;
+  }
+
+  get y() {
+    return this.#y;
   }
 
   set x(value) {
@@ -34,5 +46,21 @@ export default class Tile {
   set y(value) {
     this.#y = value;
     this.#tileElement.style.setProperty("--y", value);
+  }
+
+  remove() {
+    this.#tileElement.remove();
+  }
+
+  waitForTransition(animation = false) {
+    return new Promise((resolve) => {
+      this.#tileElement.addEventListener(
+        animation ? "animationend" : "transitionend",
+        resolve,
+        {
+          once: true,
+        }
+      );
+    });
   }
 }
