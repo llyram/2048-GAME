@@ -45,6 +45,7 @@ async function handleInput(e) {
             break
         default:
             setupInput()
+            return
             break
     }
 
