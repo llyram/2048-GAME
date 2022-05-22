@@ -9,12 +9,55 @@ grid.randomEmptyCell().tile = new Tile(gameBoard)
 grid.randomEmptyCell().tile = new Tile(gameBoard)
 setupInput()
 
+var touchstartX
+var touchstartY
+var touchendX
+var touchendY
+
 function setupInput() {
-    window.addEventListener("keydown", handleInput, {once : true})
+    window.addEventListener("keydown", e => {
+        handleInput(e.key)
+    }, {once : true})
+
+    document.addEventListener("touchstart", e => {
+        e.preventDefault();
+        touchstartX = e.changedTouches[0].screenX
+        touchstartY = e.changedTouches[0].screenY
+    }, {passive: false, once : true})
+
+    document.addEventListener("touchend", e=> {
+        touchendX = e.changedTouches[0].screenX
+        touchendY = e.changedTouches[0].screenY
+        handleGesture()
+    }, {once : true})
 }
 
-async function handleInput(e) {
-    switch (e.key) {
+function handleGesture() {
+    if (Math.abs(touchendX-touchstartX) > Math.abs(touchendY - touchstartY)) {
+        if (touchendX < touchstartX) {
+            handleInput("ArrowLeft")
+            console.log("left")
+        } else {
+            handleInput("ArrowRight")
+            console.log("right")
+        }
+        
+    } else {
+        if (touchendY < touchstartY) {
+            handleInput("ArrowUp")
+            console.log("up")
+        } else {
+            handleInput("ArrowDown")
+            console.log("down")
+        }
+    }
+
+}
+
+
+
+async function handleInput(dir) {
+    switch (dir) {
         case "ArrowUp":
             if (!canMoveUp()) {
                 setupInput()
