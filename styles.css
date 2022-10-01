@@ -3,14 +3,31 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-body {
+#score {
+    color: white;
     background-color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    margin: 0;
+    padding: 10px;
+    font-size: 5vmin;
+}
+
+#game-area {
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
     margin: 0;
     font-size: 7.5vmin;
+}
+
+body {
+    background-color: #333;
+    height: 100vh;
+    margin: 0;
 }
 
 #game-board {

@@ -2,6 +2,9 @@ import Grid from "./Grid.js";
 import Tile from "./Tile.js";
 
 const gameBoard = document.getElementById("game-board");
+const scoreText = document.getElementById("score");
+
+var game_score = 0;
 
 const grid = new Grid(gameBoard)
 
@@ -92,7 +95,14 @@ async function handleInput(dir) {
             break
     }
 
-    grid.cells.forEach(cell => cell.mergeTiles())
+    var round_score = 0;
+    for (let i = 0; i < grid.cells.length; i++) {
+        var cell = grid.cells[i];
+        round_score += cell.mergeTiles();
+    }
+
+    game_score += round_score;
+    updateScore();
 
     const newTile = new Tile(gameBoard)
     grid.randomEmptyCell().tile = newTile
@@ -121,6 +131,10 @@ function moveUp() {
 
 function moveDown() {
     return slideTiles(grid.cellsByRow.map(column => [...column].reverse()))
+}
+
+function updateScore() {
+    scoreText.innerText = "Score: " + game_score;
 }
 
 function slideTiles(cells) {
