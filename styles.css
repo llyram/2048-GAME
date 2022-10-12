@@ -24,6 +24,12 @@
     font-size: 7.5vmin;
 }
 
+ 
+
+.text-center {
+    text-align: center;
+  }
+
 body {
     background-color: #333;
     height: 100vh;
