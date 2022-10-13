@@ -100,9 +100,25 @@ async function handleInput(dir) {
         var cell = grid.cells[i];
         round_score += cell.mergeTiles();
     }
-
+    let prev_score = game_score;
     game_score += round_score;
-    updateScore();
+
+    //Animate the score counter
+    function animateValue(obj, start, end, duration) {
+        let startTimestamp = null;
+          const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            obj.innerHTML = "Score: "+ Math.floor(progress * (end - start) + start);
+            if (progress < 1) {
+              window.requestAnimationFrame(step);
+            }
+          };
+          window.requestAnimationFrame(step);
+        }
+        
+        const obj = document.getElementById("value");
+        animateValue(scoreText, prev_score, game_score, 1000);
 
     const newTile = new Tile(gameBoard)
     grid.randomEmptyCell().tile = newTile
@@ -133,9 +149,6 @@ function moveDown() {
     return slideTiles(grid.cellsByRow.map(column => [...column].reverse()))
 }
 
-function updateScore() {
-    scoreText.innerText = "Score: " + game_score;
-}
 
 function slideTiles(cells) {
     return Promise.all(
