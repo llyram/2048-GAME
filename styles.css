@@ -102,3 +102,23 @@ body {
         transform: scale(0);
     }
 }
+
+.reset-btn{
+    display: inline-block;
+    position: absolute;
+    top: 28px;
+    right: 38%;
+    width: 33px;
+    height: 28px;
+    border-radius: 20%;
+    border-color: rgb(255, 196, 0);
+    font-size: 1.2rem;
+    background-color: antiquewhite;
+}
+.reset-btn:hover{
+    background-color: rgb(255, 187, 0);
+}
+.reset-img{
+    width: 20px;
+    height: 20px;;
+}
