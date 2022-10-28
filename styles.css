@@ -21,7 +21,8 @@ body{
     justify-content: center;
     align-items: center;
     margin: 0;
-    padding: 10px;
+   
+    padding-left: 150px;
     font-size: 5vmin;
     text-align: left;
 }
@@ -104,16 +105,26 @@ body {
 }
 
 .reset-btn{
-    display: inline-block;
-    position: absolute;
+    display: flex;
+    justify-content:flex-end;
+    align-items:flex-end;
+    margin: -12px;
+    margin-right: 40px;
+    position:absolute;
     top: 28px;
     right: 38%;
-    width: 33px;
+    /* width: 33px; */
     height: 28px;
     border-radius: 20%;
     border-color: rgb(255, 196, 0);
     font-size: 1.2rem;
     background-color: antiquewhite;
+
+    
+   
+  
+    font-size: 5vmin;
+    text-align: right;
 }
 .reset-btn:hover{
     background-color: rgb(255, 187, 0);
