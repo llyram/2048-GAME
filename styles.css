@@ -21,8 +21,7 @@ body{
     justify-content: center;
     align-items: center;
     margin: 0;
-   
-    padding-left: 150px;
+    padding: 10px;
     font-size: 5vmin;
     text-align: left;
 }
@@ -109,7 +108,7 @@ body {
     justify-content:flex-end;
     align-items:flex-end;
     margin: -12px;
-    margin-right: 40px;
+    margin-right: -105px;
     position:absolute;
     top: 28px;
     right: 38%;
@@ -120,9 +119,7 @@ body {
     font-size: 1.2rem;
     background-color: antiquewhite;
 
-    
-   
-  
+
     font-size: 5vmin;
     text-align: right;
 }
