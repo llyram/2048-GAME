@@ -125,7 +125,7 @@ async function handleInput(dir) {
 
     if (!canMoveUp() && !canMoveDown() && !canMoveLeft() && !canMoveRight()) {
         newTile.waitForTransition(true).then(() => {
-            alert("You Lose");
+            alert("You Lose. Please try again");
         })
         return 
     }

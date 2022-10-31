@@ -115,7 +115,7 @@ body {
     /* width: 33px; */
     height: 28px;
     border-radius: 20%;
-    border-color: rgb(255, 196, 0);
+    border-color: rgb(137, 128, 103);
     font-size: 1.2rem;
     background-color: antiquewhite;
 
@@ -124,7 +124,7 @@ body {
     text-align: right;
 }
 .reset-btn:hover{
-    background-color: rgb(255, 187, 0);
+    background-color:  rgb(196, 104, 76);
 }
 .reset-img{
     width: 20px;
